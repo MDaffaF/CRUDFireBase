@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "516683916360",
+    "project_id": "news-836b4",
+    "storage_bucket": "news-836b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516683916360:android:9710c6f1998d37c87c647d",
+        "android_client_info": {
+          "package_name": "com.example.daffa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp6tMIGufdjGneiXdN1vezMK190qo4WUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516683916360:android:863a02e2487a9f277c647d",
+        "android_client_info": {
+          "package_name": "com.example.newscatalog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp6tMIGufdjGneiXdN1vezMK190qo4WUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
