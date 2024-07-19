@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,36 +28,49 @@ class MainActivity : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
     private lateinit var progressDialog: ProgressDialog
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        // Set up WindowInsets to handle edge-to-edge display
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        // Initialize Firebase and other components
         FirebaseApp.initializeApp(this)
         db = FirebaseFirestore.getInstance()
         mAuth = FirebaseAuth.getInstance()
+
+        // Initialize views
+        toolbar = findViewById(R.id.toolbar)
         recyclerView = findViewById(R.id.rcvNews)
         floatingActionButton = findViewById(R.id.floatAddNews)
         progressDialog = ProgressDialog(this).apply {
             setTitle("Loading. . .")
         }
 
+        // Set up Toolbar
+        setSupportActionBar(toolbar)
+
+        // Set up FloatingActionButton click listener
         floatingActionButton.setOnClickListener {
             startActivity(Intent(this, Newsadd::class.java))
         }
 
+        // Set up RecyclerView
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
         itemList = ArrayList()
         myAdapter = AdapterList(itemList)
         recyclerView.adapter = myAdapter
 
+        // Set up adapter click listener
         myAdapter.setOnItemClickListener(object : AdapterList.OnItemClickListener {
             override fun onItemClick(item: ItemList) {
                 val intent = Intent(this@MainActivity, NewsDetail::class.java).apply {
