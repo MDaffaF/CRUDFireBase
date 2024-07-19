@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/main"
+        android:background="@drawable/menu"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toBottomOf="@id/floatAddNews"
         app:layout_constraintStart_toStartOf="parent"
